@@ -42,6 +42,7 @@ function QuoteCard(props: QuoteCardProps) {
   const [bookmarkStatus, setBookmarkStatus] = React.useState(
     props.quote.bookmarked
   );
+ 
   function bookmarker(id: string): void {
     let bookmark_ids: Array<string> = JSON.parse(
       localStorage.getItem("bookmarks") || "[]"
@@ -67,7 +68,7 @@ function QuoteCard(props: QuoteCardProps) {
           ~ {props.quote.author}
         </p>
         <span
-          className="basis-2/12 flex justify-around pt-36 "
+          className="basis-2/12 flex justify-around pt-5 "
           onClick={() => {
             bookmarker(props.quote._id);
           }}
