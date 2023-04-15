@@ -5,7 +5,7 @@ type QuoteCardProps = {
     _id: string;
     content: string;
     author: string;
-    bookmarked:boolean;
+    bookmarked: boolean;
   };
 };
 
@@ -39,7 +39,9 @@ function QuoteCard(props: QuoteCardProps) {
       </svg>
     ),
   };
-const [bookmarkStatus, setBookmarkStatus] = React.useState(props.quote.bookmarked);
+  const [bookmarkStatus, setBookmarkStatus] = React.useState(
+    props.quote.bookmarked
+  );
   function bookmarker(id: string): void {
     let bookmark_ids: Array<string> = JSON.parse(
       localStorage.getItem("bookmarks") || "[]"
@@ -47,19 +49,23 @@ const [bookmarkStatus, setBookmarkStatus] = React.useState(props.quote.bookmarke
     if (!bookmark_ids.includes(id)) {
       bookmark_ids.push(id);
       setBookmarkStatus(true);
-    }
-    else {
+    } else {
       bookmark_ids = bookmark_ids.filter((item) => item !== id);
-      setBookmarkStatus(false)
+      setBookmarkStatus(false);
     }
     localStorage.setItem("bookmarks", JSON.stringify(bookmark_ids));
   }
 
   return (
-    <div className="p-8 mb-5 flex-col items-center flex flex-wrap text-text-100 bg-bg-300 rounded-md max-w-5/6 shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px]">
+    <div
+      style={{ marginLeft: "10%", marginRight: "10%" }}
+      className="p-8 mb-5 flex-col items-center flex flex-wrap text-text-100 bg-bg-300 rounded-md max-w-5/6 shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px]"
+    >
       <p>{props.quote.content}</p>
       <span className="flex flex-row w-full items-center ">
-        <p className="basis-10/12 flex justify-around ">~ {props.quote.author}</p>
+        <p className="basis-10/12 flex justify-around ">
+          ~ {props.quote.author}
+        </p>
         <span
           className="basis-2/12 flex justify-around pt-36 "
           onClick={() => {
