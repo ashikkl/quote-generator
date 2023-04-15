@@ -5,6 +5,7 @@ import { setQuote } from "./store/quoteSlice";
 import "./App.css";
 import QuoteCard from "./components/quoteCard";
 import {Navbar} from "./components/Navbar";
+import ToastNotifications from "./components/ToastNotifications";
 
 function App() {
   const quote = useSelector((state: any) => state.quote.quote);
@@ -15,6 +16,7 @@ function App() {
   }, []);
 
   async function fetchRandomQuote() {
+    <ToastNotifications context="Loading"/>
     const response = await axios.get("https://api.quotable.io/random");
     dispatch(setQuote(response.data));
   }
@@ -24,13 +26,13 @@ function App() {
   }
 
   return (
-    <div className="bg-slate-200 ">
+    <div className="bg-bg-100 ">
       <Navbar />
       <div className=" min-h-screen flex items-center flex-col justify-center">
         <QuoteCard quote={quote} />
         <button
           onClick={handleGenerateQuote}
-          className="bg-red-500 rounded-full hover:bg-red-300 p-1 text-center text-sm text-slate-200"
+          className="bg-primary-200 rounded-full hover:bg-primary-300 pl-3 pr-3 pt-1 pb-1  text-center text-sm text-text-100 hover:text-bg-300"
         >
           Next Quote
         </button>
