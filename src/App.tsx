@@ -1,32 +1,41 @@
-import React, { useState } from 'react'
-import logo from './logo.svg'
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
+import { setQuote } from './store/quoteSlice';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const quote = useSelector((state:any) => state.quote.quote);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetchRandomQuote();
+  }, []);
+
+  async function fetchRandomQuote() {
+    const response = await axios.get('https://api.quotable.io/random');
+    dispatch(setQuote(response.data.content));
+  }
+
+  function handleGenerateQuote() {
+    fetchRandomQuote();
+  }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button onClick={() => setCount(count => count + 1)}>count is: {count}</button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-slate-200 ">
+      <nav className="bg-red-800 text-lg pt-5 pb-3 pl-3 text-slate-100">
+        <h1 className="">Quotably</h1>
+      </nav>
+      <div className="min-h-screen flex items-center flex-col justify-center">
+        <p>{quote}</p>
+        <button onClick={handleGenerateQuote} className="bg-red-500 text-slate-200">
+          Generate Quote
+        </button>
+      </div>
     </div>
-  )
+  );
 }
+
 
 export default App
