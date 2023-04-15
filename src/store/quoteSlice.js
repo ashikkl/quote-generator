@@ -1,7 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  quote: '',
+  quote: {
+    _id: "",
+    content: "",
+    author: "",
+    authorSlug: "",
+    length: 0,
+    tags: [],
+    bookmarked: false,
+  },
 };
 
 export const quoteSlice = createSlice({
