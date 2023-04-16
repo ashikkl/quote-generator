@@ -9,7 +9,7 @@ import Bookmarks from "./components/Bookmarks";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "*",
     element: <App />,
   },
   {
