@@ -36,6 +36,7 @@ function Bookmarks(): JSX.Element {
     <div className="bg-bg-100 min-h-screen ">
       <Navbar />
       {loading ? <ToastNotifications context="Loading" /> : bookmarkedQuotes}
+      <div className="pt-5"></div>
     </div>
   );
 }
