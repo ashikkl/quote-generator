@@ -5,7 +5,7 @@ import App from "./App";
 import { Provider } from "react-redux";//@ts-ignore
 import configureStore from "./store/store.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Bookmarks from "./components/Bookmarks";
+import Bookmarks from "./pages/Bookmarks";
 
 const router = createBrowserRouter([
   {

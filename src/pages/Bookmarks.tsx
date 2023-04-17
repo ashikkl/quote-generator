@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import QuoteCard from "./quoteCard";
-import ToastNotifications from "./ToastNotifications";
+import Navbar from "../components/Navbar";
+import QuoteCard from "../components/quoteCard";
+import ToastNotifications from "../components/ToastNotifications";
 
 function Bookmarks(): JSX.Element {
   const [loading, setLoading] = useState(false);
@@ -18,13 +18,14 @@ function Bookmarks(): JSX.Element {
       />
     );
   }
-  const [update, setUpdate] = useState(false);
+  const [update, setUpdate] = useState(true);
   function updater(update: boolean) {
-    setLoading(update);
+    setUpdate(update)
   }
   const [bookmarkedQuotes, setBookmarkedQuotes] = useState<JSX.Element[]>([]);
 
   useEffect(() => {
+    setLoading(update);
     let bookmark_ids: Array<string> = JSON.parse(
       localStorage.getItem("bookmarks") || "[]"
     );
@@ -33,7 +34,7 @@ function Bookmarks(): JSX.Element {
     )
       .then((results) => {
         setBookmarkedQuotes(results);
-        setLoading(false);
+        setUpdate(false);
       })
       .catch((error) => {
         console.error(error);
