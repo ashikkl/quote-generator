@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as Toast from "@radix-ui/react-toast";
+import { SyncLoader } from "react-spinners";
 
-const ToastNotifications = (props:{context:string}) => {
-
+const ToastNotifications = (props: { context: string }) => {
   return (
     <Toast.Provider swipeDirection="right">
       <Toast.Root
@@ -10,7 +10,10 @@ const ToastNotifications = (props:{context:string}) => {
         duration={1000}
       >
         <Toast.Title className="[grid-area:_title] mb-[5px] font-medium text-text-100 text-[15px]">
-          {props.context}
+          <div className="flex items-center">
+            {props.context}
+            <SyncLoader color="rgb(222 222 222)" size={4} speedMultiplier={1.2} />
+          </div>
         </Toast.Title>
       </Toast.Root>
       <Toast.Viewport className="[--viewport-padding:_25px] fixed bottom-0 right-0 flex flex-col p-[var(--viewport-padding)] gap-[10px] w-[390px] max-w-[100vw] m-0 list-none z-[2147483647] outline-none" />
