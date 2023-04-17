@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/bookmarks",
+    path: "bookmarks",
     element: <Bookmarks />,
   },
 ]);

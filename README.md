@@ -27,6 +27,7 @@ To run the app locally, follow these steps:
 - Axios
 - Tailwind CSS
 - Radix UI
+- React Spinners
 - ViteJS
 
 ## API
