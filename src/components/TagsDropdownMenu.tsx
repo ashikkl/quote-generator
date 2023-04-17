@@ -22,7 +22,7 @@ const TagsMenu = (props: { onTagSelect: Function }) => {
     slug: string;
     key: string;
   }): JSX.Element {
-    return <SelectItem value={item.slug}>{item.tagItem}</SelectItem>;
+    return <SelectItem value={item.slug} key={item.key}>{item.tagItem}</SelectItem>;
   }
   const SelectItem :any= React.forwardRef(//@ts-ignore
     ({ children, className, ...props }, forwardedRef) => {
@@ -58,6 +58,7 @@ const TagsMenu = (props: { onTagSelect: Function }) => {
       const response = await axios.get("https://api.quotable.io/tags");
       setTagsList(response.data);
     }
+    
     fetchQuoteTags();
   }, []);
   return (

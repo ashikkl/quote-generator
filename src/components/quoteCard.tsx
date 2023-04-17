@@ -7,6 +7,7 @@ type QuoteCardProps = {
     author: string;
     bookmarked: boolean;
   };
+  update?: Function;
 };
 
 function QuoteCard(props: QuoteCardProps) {
@@ -42,8 +43,13 @@ function QuoteCard(props: QuoteCardProps) {
   const [bookmarkStatus, setBookmarkStatus] = React.useState(
     props.quote.bookmarked
   );
- 
+  const [update, setUpdate] = React.useState(true);
   function bookmarker(id: string): void {
+    if (typeof props.update !=="undefined" ) {
+      setUpdate(!update);
+      props.update(update);
+    }
+
     let bookmark_ids: Array<string> = JSON.parse(
       localStorage.getItem("bookmarks") || "[]"
     );

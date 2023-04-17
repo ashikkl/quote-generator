@@ -10,9 +10,19 @@ function Bookmarks(): JSX.Element {
   async function fetchBookmarkedQuote(props: idType): Promise<JSX.Element> {
     const response = await axios.get("https://api.quotable.io/quotes/" + props);
     response.data.bookmarked = true;
-    return <QuoteCard key={response.data._id} quote={response.data} />;
+    return (
+      <QuoteCard
+        key={response.data._id}
+        quote={response.data}
+        update={updater}
+      />
+    );
   }
-
+  const [update, setUpdate] = useState(false);
+  function updater(update: boolean) {
+    setUpdate(update);
+    console.log(update);
+  }
   const [bookmarkedQuotes, setBookmarkedQuotes] = useState<JSX.Element[]>([]);
 
   useEffect(() => {
@@ -26,11 +36,12 @@ function Bookmarks(): JSX.Element {
       .then((results) => {
         setBookmarkedQuotes(results);
         setLoading(false);
+        setUpdate(false);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [update]);
 
   return (
     <div className="bg-bg-100 min-h-screen ">
