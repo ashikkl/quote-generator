@@ -54,13 +54,12 @@ function App() {
           Quotably
         </h1>
 
-        {loading ? (
-          <ToastNotifications context="Loading" />
-        ) : (
-          <div className="flex-start">
-            <QuoteCard key={quote._id} quote={quote} />
-          </div>
-        )}
+        {loading ? <ToastNotifications context="Loading" /> : ""}
+
+        <div className="flex-start ">
+          <QuoteCard key={quote._id} quote={quote} />
+        </div>
+
         <div className="flex space-x-16">
           <TagsMenu onTagSelect={handleTagSelect} />
           <button
