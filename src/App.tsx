@@ -56,7 +56,7 @@ function App() {
 
         {loading ? <ToastNotifications context="Loading" /> : ""}
 
-        <div className="flex-start ">
+        <div className="flex-start animate-fade">
           <QuoteCard key={quote._id} quote={quote} />
         </div>
 

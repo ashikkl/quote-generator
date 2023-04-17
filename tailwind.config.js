@@ -29,6 +29,10 @@ module.exports = {
         },
       },
       keyframes: {
+        fadeIn: {
+          from: { opacity: 0 ,transform: "scale(0)"},
+          to: { opacity: 1 ,transform: "scale(1)"},
+        },
         hide: {
           from: { opacity: 1 },
           to: { opacity: 0 },
@@ -61,6 +65,7 @@ module.exports = {
         },
       },
       animation: {
+        fade: "fadeIn .6s ease-out",
         hide: "hide 100ms ease-in",
         slideIn: "slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1)",
         swipeOut: "swipeOut 100ms ease-out",
