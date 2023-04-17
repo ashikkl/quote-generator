@@ -20,8 +20,7 @@ function Bookmarks(): JSX.Element {
   }
   const [update, setUpdate] = useState(false);
   function updater(update: boolean) {
-    setUpdate(update);
-    console.log(update);
+    setLoading(update);
   }
   const [bookmarkedQuotes, setBookmarkedQuotes] = useState<JSX.Element[]>([]);
 
@@ -29,14 +28,12 @@ function Bookmarks(): JSX.Element {
     let bookmark_ids: Array<string> = JSON.parse(
       localStorage.getItem("bookmarks") || "[]"
     );
-    setLoading(true);
     Promise.all(
       bookmark_ids.map((bookmark_id) => fetchBookmarkedQuote(bookmark_id))
     )
       .then((results) => {
         setBookmarkedQuotes(results);
         setLoading(false);
-        setUpdate(false);
       })
       .catch((error) => {
         console.error(error);
