@@ -26,6 +26,7 @@ To run the app locally, follow these steps:
 - Redux
 - Axios
 - Tailwind CSS
+- Radix UI
 - ViteJS
 
 ## API
