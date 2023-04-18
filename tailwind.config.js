@@ -30,8 +30,8 @@ module.exports = {
       },
       keyframes: {
         fadeIn: {
-          from: { opacity: 0 ,transform: "scale(0)"},
-          to: { opacity: 1 ,transform: "scale(1)"},
+          from: { opacity: 0 ,transform: "scale(0)", transform: "translateY(calc(100% + var(--viewport-padding)))",},
+          to: { opacity: 1 ,transform: "scale(1)", transform: "translateY(0)",},
         },
         hide: {
           from: { opacity: 1 },
@@ -41,7 +41,7 @@ module.exports = {
           from: {
             transform: "translateX(calc(100% + var(--viewport-padding)))",
           },
-          to: { transform: "translateX(0))" },
+          to: { transform: "translateX(0)" },
         },
         swipeOut: {
           from: { transform: "translateX(var(--radix-toast-swipe-end-x))" },
