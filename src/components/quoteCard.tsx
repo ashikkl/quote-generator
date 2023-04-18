@@ -3,14 +3,26 @@ import React from "react";
 type QuoteCardProps = {
   quote: {
     _id: string;
-    content: string="Leaders aren't born they are made. And they are made just like anything else, through hard work. And that's the price we'll have to pay to achieve that goal, or any goal.";
-    author: string="Vince Lombardi";
+    content: string;
+    author: string;
     bookmarked: boolean;
   };
   update?: Function;
 };
 
-function QuoteCard(props: QuoteCardProps) {
+function QuoteCard(props: QuoteCardProps= {
+
+  quote: {
+
+    _id: "stf";
+
+    content: "Leaders aren't born they are made. And they are made just like anything else, through hard work. And that's the price we'll have to pay to achieve that goal, or any goal.";
+
+    author: "Vince Lombardi";
+
+    bookmarked: false;
+
+  };};) {
   const bookmark = {
     normal: (
       <svg
