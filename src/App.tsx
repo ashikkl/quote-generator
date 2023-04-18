@@ -57,7 +57,19 @@ function App() {
         {loading ? <ToastNotifications context="Loading" /> : ""}
 
         <div className="flex-start animate-fade">
-          <QuoteCard key={quote._id} quote={quote} />
+          <QuoteCard key={quote._id | ""} quote={quote | {
+
+  quote: {
+
+    _id: "stf",
+
+    content: "Leaders aren't born they are made. And they are made just like anything else, through hard work. And that's the price we'll have to pay to achieve that goal, or any goal.",
+
+    author: "Vince Lombardi",
+
+    bookmarked: false,
+
+  },}} />
         </div>
 
         <div className="flex space-x-16">
