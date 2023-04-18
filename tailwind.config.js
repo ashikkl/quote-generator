@@ -30,8 +30,18 @@ module.exports = {
       },
       keyframes: {
         fadeIn: {
-          from: { opacity: 0 ,transform: "scale(0)", transform: "translateY(calc(100% + var(--viewport-padding)))",filter: "blur(0px)",},
-          to: { opacity: 1 ,transform: "scale(1)", transform: "translateY(0)",filter: "blur(10px)",},
+          from: {
+            opacity: 0,
+            transform: "scale(0)",
+            transform: "translateY(calc(100% + var(--viewport-padding)))",
+            filter: "blur(0px)",
+          },
+          to: {
+            opacity: 1,
+            transform: "scale(1)",
+            transform: "translateY(0)",
+            filter: "blur(10px)",
+          },
         },
         hide: {
           from: { opacity: 1 },

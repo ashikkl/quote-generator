@@ -10,9 +10,7 @@ type QuoteCardProps = {
   update?: Function;
 };
 
-function QuoteCard(props: QuoteCardProps
-
-) {
+function QuoteCard(props: QuoteCardProps) {
   const bookmark = {
     normal: (
       <svg
@@ -47,7 +45,7 @@ function QuoteCard(props: QuoteCardProps
   );
   const [update, setUpdate] = React.useState(true);
   function bookmarker(id: string): void {
-    if (typeof props.update !=="undefined" ) {
+    if (typeof props.update !== "undefined") {
       setUpdate(!update);
       props.update(update);
     }

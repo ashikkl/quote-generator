@@ -20,7 +20,7 @@ function Bookmarks(): JSX.Element {
   }
   const [update, setUpdate] = useState(true);
   function updater(update: boolean) {
-    setUpdate(update)
+    setUpdate(update);
   }
   const [bookmarkedQuotes, setBookmarkedQuotes] = useState<JSX.Element[]>([]);
 

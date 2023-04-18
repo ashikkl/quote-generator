@@ -1,6 +1,6 @@
 import React from "react";
 import * as Select from "@radix-ui/react-select";
-import classnames from 'classnames';
+import classnames from "classnames";
 import {
   CheckIcon,
   ChevronDownIcon,
@@ -22,9 +22,14 @@ const TagsMenu = (props: { onTagSelect: Function }) => {
     slug: string;
     key: string;
   }): JSX.Element {
-    return <SelectItem value={item.slug} key={item.key}>{item.tagItem}</SelectItem>;
+    return (
+      <SelectItem value={item.slug} key={item.key}>
+        {item.tagItem}
+      </SelectItem>
+    );
   }
-  const SelectItem :any= React.forwardRef(//@ts-ignore
+  const SelectItem: any = React.forwardRef(
+    //@ts-ignore
     ({ children, className, ...props }, forwardedRef) => {
       return (
         <Select.Item
@@ -32,7 +37,7 @@ const TagsMenu = (props: { onTagSelect: Function }) => {
             "text-[13px] leading-none text-bg-100 rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-primary-200 data-[highlighted]:text-text-100",
             className
           )}
-          {...props}//@ts-ignore
+          {...props} //@ts-ignore
           ref={forwardedRef}
         >
           <Select.ItemText>{children}</Select.ItemText>
@@ -58,7 +63,7 @@ const TagsMenu = (props: { onTagSelect: Function }) => {
       const response = await axios.get("https://api.quotable.io/tags");
       setTagsList(response.data);
     }
-    
+
     fetchQuoteTags();
   }, []);
   return (

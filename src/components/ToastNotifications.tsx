@@ -12,7 +12,11 @@ const ToastNotifications = (props: { context: string }) => {
         <Toast.Title className="[grid-area:_title] mb-[5px] font-medium text-text-100 text-[15px]">
           <div className="flex items-center">
             {props.context}
-            <SyncLoader color="rgb(222 222 222)" size={4} speedMultiplier={1.2} />
+            <SyncLoader
+              color="rgb(222 222 222)"
+              size={4}
+              speedMultiplier={1.2}
+            />
           </div>
         </Toast.Title>
       </Toast.Root>
