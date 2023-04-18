@@ -8,7 +8,7 @@ export default defineConfig(() => ({
       cache: true,
       icons: {
         favicons: {
-          source: './assets/logo.png'
+          source: './src/assets/logo.png'
         },
       }
     })
