@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   quote: {
     _id: "",
-    content: "Loading...",
-    author: "...",
+    content: "___________________",
+    author: "________",
     authorSlug: "",
     length: 0,
     tags: [],
