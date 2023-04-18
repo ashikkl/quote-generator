@@ -32,13 +32,13 @@ module.exports = {
         fadeIn: {
           from: {
             opacity: 0,
-            transform: "scale(0)",
+            scale: 0,
             transform: "translateY(120vh)",
             filter: "blur(0px)",
           },
           to: {
             opacity: 1,
-            transform: "scale(1)",
+            scale: 1,
             transform: "translateY(0)",
             filter: "blur(10px)",
           },
