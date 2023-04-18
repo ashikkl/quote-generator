@@ -1,9 +1,16 @@
-import * as reactPlugin from "vite-plugin-react";
-import type { UserConfig } from "vite";
+import { faviconsPlugin } from '@darkobits/vite-plugin-favicons';
+import { defineConfig } from 'vite';
 
-const config: UserConfig = {
-  jsx: "react",
-  plugins: [reactPlugin],
-};
-
-export default config;
+export default defineConfig(() => ({
+  plugins: [
+    faviconsPlugin({
+      inject: true,
+      cache: true,
+      icons: {
+        favicons: {
+          source: './assets/logo.png'
+        },
+      }
+    })
+  ]
+}));

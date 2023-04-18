@@ -33,7 +33,7 @@ module.exports = {
           from: {
             opacity: 0,
             transform: "scale(0)",
-            transform: "translateY(calc(100% + var(--viewport-padding)))",
+            transform: "translateY(120vh)",
             filter: "blur(0px)",
           },
           to: {
