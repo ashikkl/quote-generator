@@ -40,7 +40,7 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-bg-100">
+    <motion.div layout className="bg-bg-100">
       <div className="min-h-screen flex items-center flex-col ">
         <h1
           className="font-inspiration basis-1/3 text-text-100 pb-60"
@@ -56,9 +56,9 @@ export default function Home() {
         <AnimatePresence>
           <motion.div
             layout
-            animate={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-            exit={{ opacity: 0 }}
+            animate={{ opacity: 1, filter: "blur(0px)" }}
+            initial={{ opacity: 0, filter: "blur(20px)" }}
+            exit={{ opacity: 0, filter: "blur(20px)" }}
             className="flex-start"
           >
             <QuoteCard key={quote._id} quote={quote} />
@@ -77,6 +77,6 @@ export default function Home() {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

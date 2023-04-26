@@ -53,7 +53,7 @@ function Bookmarks(): JSX.Element {
         className="bg-bg-100 min-h-screen flex flex-col "
       >
         {loading ? <ToastNotifications context="Loading" /> : ""}
-        {<div className="flex-start">{bookmarkedQuotes}</div>}
+        {<div className="pt-6 flex-start">{bookmarkedQuotes}</div>}
         <div className="pt-5"></div>
       </motion.div>
     </AnimatePresence>

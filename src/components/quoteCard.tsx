@@ -68,9 +68,9 @@ function QuoteCard(props: QuoteCardProps) {
     <AnimatePresence>
       <motion.div
         layout
-        animate={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-        exit={{ opacity: 0 }}
+        animate={{ opacity: 1, transform: "translateY(0px)" }}
+        initial={{ opacity: 0, transform: "translateY(20px)" }}
+        exit={{ opacity: 0, transform: "translateY(-20px)" }}
         style={{ marginLeft: "10%", marginRight: "10%" }}
         className="p-8 mb-5 flex-col items-center flex flex-wrap text-text-100 bg-bg-300 rounded-md max-w-5/6 shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px]"
       >
