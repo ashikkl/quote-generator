@@ -44,15 +44,12 @@ function Bookmarks(): JSX.Element {
 
   return (
     <AnimatePresence>
+      {loading ? <ToastNotifications context="Loading" /> : ""}
       <motion.div
         layout
-        animate={{ opacity: 1, transform: "translateY(0px)" }}
-        initial={{ opacity: 0, transform: "translateY(20px)" }}
-        exit={{ opacity: 0, transform: "translateY(-20px)" }}
-        transition={{ duration: 1 }}
+        
         className="bg-bg-100 min-h-screen flex flex-col "
       >
-        {loading ? <ToastNotifications context="Loading" /> : ""}
         {<div className="pt-6 flex-start">{bookmarkedQuotes}</div>}
         <div className="pt-5"></div>
       </motion.div>
