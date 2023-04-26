@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
 import QuoteCard from "../components/quoteCard";
 import ToastNotifications from "../components/ToastNotifications";
 
@@ -43,7 +42,6 @@ function Bookmarks(): JSX.Element {
 
   return (
     <div className="bg-bg-100 min-h-screen flex flex-col ">
-      <Navbar />
       {loading ? <ToastNotifications context="Loading" /> : ""}
       {<div className="flex-start">{bookmarkedQuotes}</div>}
       <div className="pt-5"></div>

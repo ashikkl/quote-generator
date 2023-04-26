@@ -1,28 +1,20 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { Provider } from "react-redux";//@ts-ignore
+import { Provider } from "react-redux"; //@ts-ignore
 import configureStore from "./store/store.js";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Bookmarks from "./pages/Bookmarks";
+import { BrowserRouter } from "react-router-dom";
 
-const router = createBrowserRouter([
-  {
-    path: "*",
-    element: <App />,
-  },
-  {
-    path: "bookmarks",
-    element: <Bookmarks />,
-  },
-]);
+const domNode = document.getElementById("root")!;
+const root = ReactDOM.createRoot(domNode);
 
-ReactDOM.render(
+root.render(
   <React.StrictMode>
-    <Provider store={configureStore}>
-      <RouterProvider router={router} />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+    <BrowserRouter>
+      <Provider store={configureStore}>
+        <App />
+      </Provider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
