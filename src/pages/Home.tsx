@@ -5,6 +5,7 @@ import { setQuote } from "../store/quoteSlice";
 import QuoteCard from "../components/quoteCard";
 import ToastNotifications from "../components/ToastNotifications";
 import TagsMenu from "../components/TagsDropdownMenu";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
   //@ts-ignore
@@ -52,10 +53,17 @@ export default function Home() {
         </h1>
 
         {loading ? <ToastNotifications context="Loading" /> : ""}
-
-        <div className="flex-start animate-fade">
-          <QuoteCard key={quote._id} quote={quote} />
-        </div>
+        <AnimatePresence>
+          <motion.div
+            layout
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            exit={{ opacity: 0 }}
+            className="flex-start"
+          >
+            <QuoteCard key={quote._id} quote={quote} />
+          </motion.div>
+        </AnimatePresence>
 
         <div className="flex space-x-16">
           <TagsMenu onTagSelect={handleTagSelect} />
