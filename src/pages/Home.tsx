@@ -15,7 +15,9 @@ export default function Home() {
   const [selectedTag, setSelectedTag] = useState("");
 
   useEffect(() => {
-    fetchRandomQuote();
+      if (!quote.content.length) {
+        fetchRandomQuote();
+      }
   }, []);
 
   async function fetchRandomQuote(selectedTag: string = "") {
@@ -73,7 +75,7 @@ export default function Home() {
             </motion.div>
           )}
 
-        <div className="flex space-x-16">
+        <motion.div layout className="flex space-x-16">
           <TagsMenu onTagSelect={handleTagSelect} />
           <button
             onClick={() => {
@@ -83,7 +85,7 @@ export default function Home() {
           >
             Next Quote
           </button>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );
