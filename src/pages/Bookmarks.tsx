@@ -47,10 +47,10 @@ function Bookmarks(): JSX.Element {
       <motion.div
         layout
         animate={{ opacity: 1, transform: "translateY(0px)" }}
-        initial={{ opacity: 0, transform: "translateY(20px)" }}
+        initial={{ opacity: 0, transform: "translateY(-20px)" }}
         className="bg-bg-100 min-h-screen flex flex-col "
       >
-        {<div className="pt-6 flex-start">{bookmarkedQuotes}</div>}
+        {<div className="pt-6 ">{bookmarkedQuotes}</div>}
         <div className="pt-5"></div>
       </motion.div>
     </div>
