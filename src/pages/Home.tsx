@@ -8,6 +8,7 @@ import TagsMenu from "../components/TagsDropdownMenu";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
+
   //@ts-ignore
   const quote = useSelector((state) => state.quote.quote);
   const dispatch = useDispatch();
@@ -75,7 +76,7 @@ export default function Home() {
             </motion.div>
           )}
 
-        <motion.div layout className="flex space-x-16">
+        <motion.div layout className="flex space-x-16" id="tags" >
           <TagsMenu onTagSelect={handleTagSelect} />
           <button
             onClick={() => {
