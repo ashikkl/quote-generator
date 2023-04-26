@@ -12,10 +12,12 @@ export default function Home() {
   const quote = useSelector((state) => state.quote.quote);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [skeleton, setSkeleton] = useState(true);
   const [selectedTag, setSelectedTag] = useState("");
 
   useEffect(() => {
     fetchRandomQuote();
+    setSkeleton(false);
   }, []);
 
   async function fetchRandomQuote(selectedTag: string = "") {
@@ -53,17 +55,25 @@ export default function Home() {
         </h1>
 
         {loading ? <ToastNotifications context="Loading" /> : ""}
-        <AnimatePresence>
-          <motion.div
-            layout
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            initial={{ opacity: 0, filter: "blur(20px)" }}
-            exit={{ opacity: 0, filter: "blur(20px)" }}
-            className="flex-start"
-          >
-            <QuoteCard key={quote._id} quote={quote} />
-          </motion.div>
-        </AnimatePresence>
+          {skeleton ? (
+            <div className="p-8 pt-3 min-w-[50vw]  min-h-[20vh] mb-5 flex-col items-center flex flex-wrap text-text-100 bg-bg-300 rounded-md max-w-5/6 shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px]">
+              <span className="flex gap-5 p-6 flex-col">
+                <span className="bg-text-200 animate-pulse w-[40vw] h-[2vh] rounded-full"></span>
+                <span className="bg-text-200 animate-pulse w-[30vw] h-[2vh] rounded-full"></span>
+              </span>
+              <span className="flex animate-pulse items-center bg-text-200 w-[15vw] h-[vh] rounded-full"></span>
+            </div>
+          ) : (
+            <motion.div
+              layout
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              initial={{ opacity: 0, filter: "blur(20px)" }}
+              exit={{ opacity: 0, filter: "blur(20px)" }}
+              className="flex-start"
+            >
+              <QuoteCard key={quote._id} quote={quote} />
+            </motion.div>
+          )}
 
         <div className="flex space-x-16">
           <TagsMenu onTagSelect={handleTagSelect} />

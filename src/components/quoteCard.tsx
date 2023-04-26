@@ -1,5 +1,5 @@
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 type QuoteCardProps = {
   quote: {
@@ -65,7 +65,6 @@ function QuoteCard(props: QuoteCardProps) {
   }
 
   return (
-    <AnimatePresence>
       <motion.div
         layout
         animate={{ opacity: 1, filter: "blur(0px)" }}
@@ -89,7 +88,6 @@ function QuoteCard(props: QuoteCardProps) {
           </span>
         </span>
       </motion.div>
-    </AnimatePresence>
   );
 }
 

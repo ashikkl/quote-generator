@@ -2,8 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import QuoteCard from "../components/quoteCard";
 import ToastNotifications from "../components/ToastNotifications";
-import { motion, AnimatePresence } from "framer-motion";
-
+import { motion } from "framer-motion";
 
 function Bookmarks(): JSX.Element {
   const [loading, setLoading] = useState(false);
@@ -43,17 +42,18 @@ function Bookmarks(): JSX.Element {
   }, [update]);
 
   return (
-    <AnimatePresence>
+    <div>
       {loading ? <ToastNotifications context="Loading" /> : ""}
       <motion.div
         layout
-        
+        animate={{ opacity: 1, transform: "translateY(0px)" }}
+        initial={{ opacity: 0, transform: "translateY(20px)" }}
         className="bg-bg-100 min-h-screen flex flex-col "
       >
         {<div className="pt-6 flex-start">{bookmarkedQuotes}</div>}
         <div className="pt-5"></div>
       </motion.div>
-    </AnimatePresence>
+    </div>
   );
 }
 
